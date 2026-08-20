@@ -117,3 +117,5 @@ async function cargarDatosSofaScore() {
         arqueros.length
     );
 }
+
+iniciarEstadisticasJugadores();
