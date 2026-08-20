@@ -4,7 +4,7 @@ function iniciarEstadisticasJugadores() {
     const posicionSelect = document.getElementById("posicionSelect");
 
     if (!equipoSelect || !posicionSelect) {
-        console.error("No se encontraron los selectores de jugadores.");
+        console.error("No se encontraron los selectores.");
         return;
     }
 
@@ -15,19 +15,18 @@ function iniciarEstadisticasJugadores() {
         arqueros
     };
 
-    // Limpiar equipos
     equipoSelect.innerHTML = "";
 
-    // Obtener equipos únicos
     const equipos = new Set();
 
     Object.values(listas).forEach(lista => {
         lista.forEach(jugador => {
-            equipos.add(jugador.Equipo);
+            if (jugador.Equipo) {
+                equipos.add(jugador.Equipo);
+            }
         });
     });
 
-    // Orden alfabético
     [...equipos]
         .sort((a, b) => a.localeCompare(b))
         .forEach(equipo => {
@@ -55,7 +54,6 @@ function iniciarEstadisticasJugadores() {
     }
 
     function capitalizar(texto) {
-
         return texto.charAt(0).toUpperCase() + texto.slice(1);
     }
 
@@ -71,7 +69,7 @@ function iniciarEstadisticasJugadores() {
         );
 
         if (!tabla) {
-            console.error("Tabla no encontrada:", posicion);
+            console.error("No existe:", "tabla" + capitalizar(posicion));
             return;
         }
 
@@ -90,9 +88,7 @@ function iniciarEstadisticasJugadores() {
                 const celda = document.createElement("td");
 
                 celda.textContent =
-                    valor === null || valor === undefined
-                        ? 0
-                        : valor;
+                    valor ?? 0;
 
                 fila.appendChild(celda);
             });
@@ -101,24 +97,30 @@ function iniciarEstadisticasJugadores() {
         });
 
         tabla.style.display = "table";
+
+        console.log(
+            "Tabla:",
+            posicion,
+            "| Equipo:",
+            equipo,
+            "| Jugadores:",
+            jugadores.length
+        );
     }
 
     equipoSelect.addEventListener("change", mostrarTabla);
     posicionSelect.addEventListener("change", mostrarTabla);
 
-    // Primera posición
-    posicionSelect.value = "delanteros";
-
-    // Primer equipo
     if (equipoSelect.options.length > 0) {
         equipoSelect.selectedIndex = 0;
     }
 
+    posicionSelect.value = "delanteros";
+
     mostrarTabla();
 
     console.log(
-        "ESTADÍSTICAS DE JUGADORES OK",
-        equipos.size,
-        "equipos"
+        "TABLAS DE JUGADORES OK | Equipos:",
+        equipos.size
     );
 }
