@@ -223,8 +223,19 @@
 
 </div>
 
-<script src="scriptdatac2026.js"></script>
-<script src="script.js"></script>
+<script src="supabase-data.js"></script>
+
+<script>
+    cargarDatosSofaScore()
+        .then(() => {
+            const script = document.createElement("script");
+            script.src = "script.js";
+            document.body.appendChild(script);
+        })
+        .catch(error => {
+            console.error("No se pudieron cargar los datos:", error);
+        });
+</script>
 
   <footer class="footer">
     <p>© 2026 VisionStats. Todos los derechos reservados.</p>
