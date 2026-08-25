@@ -105,75 +105,80 @@ function ocultarTablas() {
 
 function crearFilasJugadores(datos, tablaBody) {
 
+  const tablaId = tablaBody.closest("table").id;
+
   datos.forEach(jugador => {
 
     const fila = document.createElement("tr");
-
-    // Detectar la tabla según el id del tbody
-    const tablaId = tablaBody.closest("table").id;
 
     let columnas = [];
 
     if (tablaId === "tablaDelanteros") {
 
       columnas = [
-        "Equipo",
-        "Nombre",
-        "Goles",
-        "Regates con éxito",
-        "Tiros a puerta",
-        "Conversión de goles %",
-        "Duelos terrestres ganados %",
-        "Minutos jugados"
+        ["Equipo", "Equipo"],
+        ["Nombre", "Nombre"],
+        ["Goles", "goals"],
+        ["Regates con éxito", "successfulDribbles"],
+        ["Tiros a puerta", "shotsOnTarget"],
+        ["Conversión de goles %", "goalConversionPercentage"],
+        ["Duelos terrestres ganados %", "groundDuelsWonPercentage"],
+        ["Minutos jugados", "minutesPlayed"]
       ];
 
-    } else if (tablaId === "tablaMediocampistas") {
-
-      columnas = [
-        "Equipo",
-        "Nombre",
-        "Goles",
-        "Pases precisos",
-        "Pases clave",
-        "Regates con éxito",
-        "Pases precisos en el último tercio",
-        "Minutos jugados"
-      ];
-
-    } else if (tablaId === "tablaDefensores") {
-
-      columnas = [
-        "Equipo",
-        "Nombre",
-        "Pases precisos %",
-        "Entradas",
-        "Intercepciones",
-        "Despejes",
-        "Regateado",
-        "Minutos jugados"
-      ];
-
-    } else if (tablaId === "tablaArqueros") {
-
-      columnas = [
-        "Equipo",
-        "Nombre",
-        "Paradas",
-        "Portería a cero",
-        "Goles encajados dentro del área",
-        "Goles encajados fuera del área",
-        "Tiros lanzados con éxito",
-        "Minutos jugados"
-      ];
     }
 
-    columnas.forEach(propiedad => {
+    else if (tablaId === "tablaMediocampistas") {
+
+      columnas = [
+        ["Equipo", "Equipo"],
+        ["Nombre", "Nombre"],
+        ["Goles", "goals"],
+        ["Pases precisos", "accuratePasses"],
+        ["Pases clave", "keyPasses"],
+        ["Regates con éxito", "successfulDribbles"],
+        ["Pases precisos en el último tercio", "accurateFinalThirdPasses"],
+        ["Minutos jugados", "minutesPlayed"]
+      ];
+
+    }
+
+    else if (tablaId === "tablaDefensores") {
+
+      columnas = [
+        ["Equipo", "Equipo"],
+        ["Nombre", "Nombre"],
+        ["Pases precisos %", "accuratePassesPercentage"],
+        ["Entradas", "tackles"],
+        ["Intercepciones", "interceptions"],
+        ["Despejes", "clearances"],
+        ["Regateado", "dribbledPast"],
+        ["Minutos jugados", "minutesPlayed"]
+      ];
+
+    }
+
+    else if (tablaId === "tablaArqueros") {
+
+      columnas = [
+        ["Equipo", "Equipo"],
+        ["Nombre", "Nombre"],
+        ["Paradas", "saves"],
+        ["Portería a cero", "cleanSheet"],
+        ["Goles encajados dentro del área", "goalsConcededInsideTheBox"],
+        ["Goles encajados fuera del área", "goalsConcededOutsideTheBox"],
+        ["Tiros lanzados con éxito", "savedShotsFromInsideTheBox"],
+        ["Minutos jugados", "minutesPlayed"]
+      ];
+
+    }
+
+    columnas.forEach(([nombreColumna, propiedad]) => {
 
       const celda = document.createElement("td");
 
       let valor = jugador[propiedad];
 
-      // Si el dato no existe
       if (valor === undefined || valor === null) {
         valor = "-";
       }
