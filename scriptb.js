@@ -104,13 +104,85 @@ function ocultarTablas() {
 }
 
 function crearFilasJugadores(datos, tablaBody) {
+
   datos.forEach(jugador => {
+
     const fila = document.createElement("tr");
-    for (const propiedad in jugador) {
-      const celda = document.createElement("td");
-      celda.textContent = jugador[propiedad];
-      fila.appendChild(celda);
+
+    // Detectar la tabla según el id del tbody
+    const tablaId = tablaBody.closest("table").id;
+
+    let columnas = [];
+
+    if (tablaId === "tablaDelanteros") {
+
+      columnas = [
+        "Equipo",
+        "Nombre",
+        "Goles",
+        "Regates con éxito",
+        "Tiros a puerta",
+        "Conversión de goles %",
+        "Duelos terrestres ganados %",
+        "Minutos jugados"
+      ];
+
+    } else if (tablaId === "tablaMediocampistas") {
+
+      columnas = [
+        "Equipo",
+        "Nombre",
+        "Goles",
+        "Pases precisos",
+        "Pases clave",
+        "Regates con éxito",
+        "Pases precisos en el último tercio",
+        "Minutos jugados"
+      ];
+
+    } else if (tablaId === "tablaDefensores") {
+
+      columnas = [
+        "Equipo",
+        "Nombre",
+        "Pases precisos %",
+        "Entradas",
+        "Intercepciones",
+        "Despejes",
+        "Regateado",
+        "Minutos jugados"
+      ];
+
+    } else if (tablaId === "tablaArqueros") {
+
+      columnas = [
+        "Equipo",
+        "Nombre",
+        "Paradas",
+        "Portería a cero",
+        "Goles encajados dentro del área",
+        "Goles encajados fuera del área",
+        "Tiros lanzados con éxito",
+        "Minutos jugados"
+      ];
     }
+
+    columnas.forEach(propiedad => {
+
+      const celda = document.createElement("td");
+
+      let valor = jugador[propiedad];
+
+      // Si el dato no existe
+      if (valor === undefined || valor === null) {
+        valor = "-";
+      }
+
+      celda.textContent = valor;
+
+      fila.appendChild(celda);
+    });
+
     tablaBody.appendChild(fila);
   });
 }
