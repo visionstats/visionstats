@@ -118,7 +118,6 @@ async function cargarDatosSofaScore() {
 
     jugadores.forEach(p => {
 
-
         const s = p.estadisticas || {};
 
 
@@ -127,7 +126,6 @@ async function cargarDatosSofaScore() {
         // ====================================================
 
         if (p.posicion === "F") {
-
 
             window.delanteros.push({
 
@@ -157,7 +155,6 @@ async function cargarDatosSofaScore() {
 
             });
 
-
         }
 
 
@@ -166,7 +163,6 @@ async function cargarDatosSofaScore() {
         // ====================================================
 
         else if (p.posicion === "M") {
-
 
             window.mediocampistas.push({
 
@@ -196,7 +192,6 @@ async function cargarDatosSofaScore() {
 
             });
 
-
         }
 
 
@@ -205,7 +200,6 @@ async function cargarDatosSofaScore() {
         // ====================================================
 
         else if (p.posicion === "D") {
-
 
             window.defensores.push({
 
@@ -240,7 +234,6 @@ async function cargarDatosSofaScore() {
 
             });
 
-
         }
 
 
@@ -249,7 +242,6 @@ async function cargarDatosSofaScore() {
         // ====================================================
 
         else if (p.posicion === "G") {
-
 
             window.arqueros.push({
 
@@ -265,7 +257,7 @@ async function cargarDatosSofaScore() {
                 "Portería a cero":
                     v(s, "cleanSheet"),
 
-                "Goles encajados área":
+                "Goles encajados dentro del área":
                     v(
                         s,
                         "goalsConcededInsideTheBox"
@@ -284,7 +276,6 @@ async function cargarDatosSofaScore() {
                     v(s, "minutesPlayed")
 
             });
-
 
         }
 
