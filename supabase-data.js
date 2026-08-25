@@ -145,10 +145,10 @@ async function cargarDatosSofaScore() {
                     v(s, "shotsOnTarget"),
 
                 "Conversión de goles %":
-                    v(s, "goalConversionPercentage"),
+                Number(v(s, "goalConversionPercentage").toFixed(1)),
 
                 "Duelos terrestres ganados %":
-                    v(s, "groundDuelsWonPercentage"),
+                Number(v(s, "groundDuelsWonPercentage").toFixed(1)),
 
                 "Minutos jugados":
                     v(s, "minutesPlayed")
@@ -214,7 +214,7 @@ async function cargarDatosSofaScore() {
                         v(
                             s,
                             "accuratePassesPercentage"
-                        ).toFixed(2)
+                        ).toFixed(1)
                     ),
 
                 "Entradas":
