@@ -1,63 +1,37 @@
-name: Actualizar SofaScore → Supabase
+name: Actualizar SofaScore y Supabase
 
 on:
-
-  # Ejecutar todos los días
-  # 06:00 UTC = 03:00 Argentina
   schedule:
     - cron: "0 6 * * *"
 
-  # Permite ejecutarlo manualmente
   workflow_dispatch:
 
-
 jobs:
-
   actualizar:
-
     runs-on: ubuntu-latest
 
     steps:
 
-      # Descargar repositorio
       - name: Descargar repositorio
         uses: actions/checkout@v4
 
-
-      # Configurar Python
       - name: Configurar Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.13"
 
-
-      # Instalar dependencias
       - name: Instalar dependencias
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-
-      # Descargar datos de SofaScore
       - name: Descargar datos de SofaScore
         run: |
           python sofascore_descarga_completa.py
 
-
-      # Actualizar Supabase
       - name: Actualizar Supabase
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
         run: |
           python sofascore_to_supabase.py
-
-
-      # Guardar JSON generado
-      - name: Guardar JSON generado
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: sofascore-json
-          path: sofascore_data/sofascore_liga_argentina_2026.json
-          retention-days: 7
