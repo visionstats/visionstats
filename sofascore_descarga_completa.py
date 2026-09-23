@@ -172,7 +172,21 @@ FIELDS = [
 # SESIÓN
 # ============================================================
 
-session = requests.Session()
+session = requests.Session(
+    impersonate="chrome"
+)
+
+session.headers.update({
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/145.0.0.0 Safari/537.36"
+    ),
+    "Accept": "application/json, text/plain, */*",
+    "Accept-Language": "es-AR,es;q=0.9,en;q=0.8",
+    "Referer": "https://www.sofascore.com/",
+    "Origin": "https://www.sofascore.com",
+})
 
 OUTPUT_DIR.mkdir(
     parents=True,
