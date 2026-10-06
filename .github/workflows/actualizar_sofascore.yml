@@ -2,41 +2,21 @@ name: Actualizar SofaScore y Supabase
 
 on:
   schedule:
-    # GitHub usa UTC: 09:00 UTC = 06:00 en Argentina
-    - cron: "0 9 * * *"
+    - cron: "0 9 * * *"   # 06:00 Argentina
   workflow_dispatch:
 
 jobs:
   actualizar:
-    runs-on: ubuntu-latest
-    # Si el bloqueo es por IP, cambiar por: runs-on: self-hosted
+    runs-on: self-hosted
 
     steps:
       - name: Descargar repositorio
         uses: actions/checkout@v4
 
-      - name: Configurar Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.13"
-
       - name: Instalar dependencias
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-
-      - name: Probar acceso a SofaScore
-        run: |
-          python -c "
-          from curl_cffi import requests
-          for u in ['https://api.sofascore.com/api/v1/unique-tournament/155/seasons',
-                    'https://www.sofascore.com/api/v1/unique-tournament/155/seasons']:
-              try:
-                  r = requests.get(u, impersonate='chrome', timeout=30)
-                  print(r.status_code, u, r.headers.get('server'), r.text[:150])
-              except Exception as e:
-                  print('ERROR', u, e)
-          "
 
       - name: Descargar datos de SofaScore
         run: python sofascore_descarga_completa.py
