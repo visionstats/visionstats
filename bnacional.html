@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Estadísticas - Primera B Nacional</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
@@ -224,8 +223,25 @@
 </div>
 
 
+<!-- Datos del radar -->
 <script src="scriptdatb.js"></script>
-<script src="scriptb.js"></script>
+
+<!-- Conexión Supabase (jugadores B Nacional) -->
+<script src="supabase-data-b.js"></script>
+
+<!-- Esperar a que Supabase termine antes de cargar scriptb.js -->
+<script>
+  cargarDatosSofaScore()
+    .then(() => {
+      console.log("Supabase listo. Cargando scriptb.js...");
+      const script = document.createElement("script");
+      script.src = "scriptb.js";
+      document.body.appendChild(script);
+    })
+    .catch(error => {
+      console.error("No se pudieron cargar los datos de SofaScore:", error);
+    });
+</script>
 
   <footer class="footer">
     <p>© 2026 VisionStats. Todos los derechos reservados.</p>

@@ -1,41 +1,43 @@
+// ============================================================
+// TOP 5
+// ============================================================
+
 function mostrarTop5() {
-  // Función auxiliar para llenar un top5 específico
-  function crearTop5(lista, atributo, idElemento, nombreExtra = '') {
-    const top5 = [...lista]
-      .sort((a, b) => b[atributo] - a[atributo])
-      .slice(0, 5);
+
+  function crearTop5(lista, atributo, idElemento) {
 
     const contenedor = document.querySelector(`#${idElemento} ol`);
     contenedor.innerHTML = '';
 
-const maxValor = top5[0][atributo]; // mejor valor del top5
+    const top5 = [...lista]
+      .sort((a, b) => (b[atributo] || 0) - (a[atributo] || 0))
+      .slice(0, 5);
 
-top5.forEach((jugador,index) => {
+    if (top5.length === 0) return;
 
- const li = document.createElement('li');
- li.classList.add("top5-item");
+    const maxValor = top5[0][atributo] || 1;
 
- const valor = nombreExtra ? jugador[nombreExtra] : jugador[atributo];
- const porcentaje = (valor / maxValor) * 100;
+    top5.forEach((jugador, index) => {
 
- li.innerHTML = `
- <span class="top5-pos">${index+1}</span>
+      const valor = jugador[atributo];
+      const porcentaje = (valor / maxValor) * 100;
 
- <span class="top5-jugador">
- ${jugador.Nombre} (${jugador.Equipo})
+      const li = document.createElement('li');
+      li.classList.add("top5-item");
 
- <div class="barra-container">
- <div class="barra" style="width:${porcentaje}%"></div>
- </div>
+      li.innerHTML = `
+        <span class="top5-pos">${index + 1}</span>
+        <span class="top5-jugador">
+          ${jugador.Nombre} (${jugador.Equipo})
+          <div class="barra-container">
+            <div class="barra" style="width:${porcentaje}%"></div>
+          </div>
+        </span>
+        <span class="top5-valor">${valor}</span>
+      `;
 
- </span>
-
- <span class="top5-valor">${valor}</span>
- `;
-
- contenedor.appendChild(li);
-
-});
+      contenedor.appendChild(li);
+    });
   }
 
   crearTop5(delanteros, 'Goles', 'top5Delanteros');
@@ -50,155 +52,84 @@ top5.forEach((jugador,index) => {
 
 mostrarTop5();
 
+
+// ============================================================
+// TABLAS POR EQUIPO Y POSICIÓN
+// (este archivo se carga después de Supabase, así que corre directo,
+//  sin esperar DOMContentLoaded)
+// ============================================================
+
 const todasLasListas = { delanteros, mediocampistas, defensores, arqueros };
 
-document.addEventListener("DOMContentLoaded", () => {
-  const equipoSelect = document.getElementById("equipoSelect");
-  const posicionSelect = document.getElementById("posicionSelect");
+const equipoSelect = document.getElementById("equipoSelect");
+const posicionSelect = document.getElementById("posicionSelect");
 
-  // Cargar opciones de equipos
-  const equiposUnicos = new Set();
-  Object.values(todasLasListas).forEach(lista => {
-    lista.forEach(j => equiposUnicos.add(j.Equipo));
-  });
+const equiposUnicos = new Set();
 
-  equiposUnicos.forEach(equipo => {
-    const option = document.createElement("option");
-    option.value = equipo;
-    option.textContent = equipo;
-    equipoSelect.appendChild(option);
-  });
+Object.values(todasLasListas).forEach(lista => {
+  lista.forEach(j => { if (j.Equipo) equiposUnicos.add(j.Equipo); });
+});
 
-/* SELECCION POR DEFECTO */
+[...equiposUnicos].sort((a, b) => a.localeCompare(b, 'es')).forEach(equipo => {
+  const option = document.createElement("option");
+  option.value = equipo;
+  option.textContent = equipo;
+  equipoSelect.appendChild(option);
+});
 
-equipoSelect.selectedIndex = 1; // primer equipo
+equipoSelect.selectedIndex = 0;
 posicionSelect.disabled = false;
-posicionSelect.value = "delanteros"; // posición inicial
+posicionSelect.value = "delanteros";
 
-mostrarTablaFiltrada("delanteros", equipoSelect.value);
+mostrarTablaFiltrada(posicionSelect.value, equipoSelect.value);
 
 equipoSelect.addEventListener("change", () => {
-
-  const equipo = equipoSelect.value;
-  const posicion = posicionSelect.value;
-
-  mostrarTablaFiltrada(posicion, equipo);
-
+  mostrarTablaFiltrada(posicionSelect.value, equipoSelect.value);
 });
 
- posicionSelect.addEventListener("change", () => {
-
-  const equipo = equipoSelect.value;
-  const posicion = posicionSelect.value;
-
-  mostrarTablaFiltrada(posicion, equipo);
-
+posicionSelect.addEventListener("change", () => {
+  mostrarTablaFiltrada(posicionSelect.value, equipoSelect.value);
 });
-});
+
 
 function ocultarTablas() {
-  document.querySelectorAll("table").forEach(tabla => {
+  document.querySelectorAll("#tablas table").forEach(tabla => {
     tabla.style.display = "none";
     tabla.querySelector("tbody").innerHTML = "";
   });
 }
 
-function crearFilasJugadores(datos, tablaBody) {
+// Arma cada fila siguiendo el orden de los encabezados de la tabla
+function crearFilasJugadores(datos, tabla) {
 
-  const tablaId = tablaBody.closest("table").id;
+  const columnas = [...tabla.querySelectorAll("thead th")]
+    .map(th => th.textContent.trim());
+
+  const body = tabla.querySelector("tbody");
 
   datos.forEach(jugador => {
-
     const fila = document.createElement("tr");
-
-    let columnas = [];
-
-    if (tablaId === "tablaDelanteros") {
-
-      columnas = [
-        ["Equipo", "Equipo"],
-        ["Nombre", "Nombre"],
-        ["Goles", "goals"],
-        ["Regates con éxito", "successfulDribbles"],
-        ["Tiros a puerta", "shotsOnTarget"],
-        ["Conversión de goles %", "goalConversionPercentage"],
-        ["Duelos terrestres ganados %", "groundDuelsWonPercentage"],
-        ["Minutos jugados", "minutesPlayed"]
-      ];
-
-    }
-
-    else if (tablaId === "tablaMediocampistas") {
-
-      columnas = [
-        ["Equipo", "Equipo"],
-        ["Nombre", "Nombre"],
-        ["Goles", "goals"],
-        ["Pases precisos", "accuratePasses"],
-        ["Pases clave", "keyPasses"],
-        ["Regates con éxito", "successfulDribbles"],
-        ["Pases precisos en el último tercio", "accurateFinalThirdPasses"],
-        ["Minutos jugados", "minutesPlayed"]
-      ];
-
-    }
-
-    else if (tablaId === "tablaDefensores") {
-
-      columnas = [
-        ["Equipo", "Equipo"],
-        ["Nombre", "Nombre"],
-        ["Pases precisos %", "accuratePassesPercentage"],
-        ["Entradas", "tackles"],
-        ["Intercepciones", "interceptions"],
-        ["Despejes", "clearances"],
-        ["Regateado", "dribbledPast"],
-        ["Minutos jugados", "minutesPlayed"]
-      ];
-
-    }
-
-    else if (tablaId === "tablaArqueros") {
-
-      columnas = [
-        ["Equipo", "Equipo"],
-        ["Nombre", "Nombre"],
-        ["Paradas", "saves"],
-        ["Portería a cero", "cleanSheet"],
-        ["Goles encajados dentro del área", "goalsConcededInsideTheBox"],
-        ["Goles encajados fuera del área", "goalsConcededOutsideTheBox"],
-        ["Tiros lanzados con éxito", "savedShotsFromInsideTheBox"],
-        ["Minutos jugados", "minutesPlayed"]
-      ];
-
-    }
-
-    columnas.forEach(([nombreColumna, propiedad]) => {
-
+    columnas.forEach(col => {
       const celda = document.createElement("td");
-
-      let valor = jugador[propiedad];
-
-      if (valor === undefined || valor === null) {
-        valor = "-";
-      }
-
-      celda.textContent = valor;
-
+      celda.textContent = jugador[col] ?? "";
       fila.appendChild(celda);
     });
-
-    tablaBody.appendChild(fila);
+    body.appendChild(fila);
   });
 }
 
 function mostrarTablaFiltrada(posicion, equipo) {
+
   ocultarTablas();
+
   const tabla = document.getElementById(`tabla${capitalizar(posicion)}`);
-  const body = tabla.querySelector("tbody");
-  const jugadoresFiltrados = todasLasListas[posicion].filter(j => j.Equipo === equipo);
+
+  const jugadoresFiltrados = todasLasListas[posicion]
+    .filter(j => j.Equipo === equipo)
+    .sort((a, b) => (b["Minutos jugados"] || 0) - (a["Minutos jugados"] || 0));
+
   if (jugadoresFiltrados.length > 0) {
-    crearFilasJugadores(jugadoresFiltrados, body);
+    crearFilasJugadores(jugadoresFiltrados, tabla);
     tabla.style.display = "table";
   } else {
     alert("No hay datos para esta combinación.");
@@ -208,6 +139,11 @@ function mostrarTablaFiltrada(posicion, equipo) {
 function capitalizar(texto) {
   return texto.charAt(0).toUpperCase() + texto.slice(1);
 }
+
+
+// ============================================================
+// RADAR DE EQUIPOS (sin cambios, usa "data" de scriptdatb.js)
+// ============================================================
 
 const labels=["GOEV","GOER","GCPP","TPCG","TPCO","GFPP","GEGR","GERG","ICTE","IGTE"]
 
