@@ -17,45 +17,42 @@ async function cargarDatosSofaScore() {
     // 1. CONSULTAR SUPABASE
     // ========================================================
 
-    const url =
-        SUPABASE_URL +
-        "/rest/v1/sofascore_players" +
-        "?select=player_id,nombre,equipo,posicion,estadisticas" +
-        "&limit=1000";
+        const TAMANIO = 1000;
+    let desde = 0;
+    const jugadores = [];
 
+    while (true) {
 
-    const respuesta = await fetch(url, {
+        const url =
+            SUPABASE_URL +
+            "/rest/v1/sofascore_players" +
+            "?select=player_id,nombre,equipo,posicion,estadisticas" +
+            "&order=player_id" +
+            "&limit=" + TAMANIO +
+            "&offset=" + desde;
 
-        method: "GET",
+        const respuesta = await fetch(url, {
+            method: "GET",
+            headers: {
+                "apikey": SUPABASE_KEY,
+                "Authorization": "Bearer " + SUPABASE_KEY
+            }
+        });
 
-        headers: {
-
-            "apikey": SUPABASE_KEY,
-
-            "Authorization":
-                "Bearer " + SUPABASE_KEY
-
+        if (!respuesta.ok) {
+            const textoError = await respuesta.text();
+            throw new Error(
+                "Error Supabase: " + respuesta.status + " - " + textoError
+            );
         }
 
-    });
+        const tanda = await respuesta.json();
+        jugadores.push(...tanda);
 
+        if (tanda.length < TAMANIO) break;
 
-    if (!respuesta.ok) {
-
-        const textoError = await respuesta.text();
-
-        throw new Error(
-            "Error Supabase: " +
-            respuesta.status +
-            " - " +
-            textoError
-        );
-
+        desde += TAMANIO;
     }
-
-
-    const jugadores = await respuesta.json();
-
 
     console.log(
         "SofaScore → recibidos:",
