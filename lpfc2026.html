@@ -3,361 +3,264 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Estadísticas - Liga Profesional Argentina</title>
-
+  <title>Liga Profesional, Clausura 2026 | VisionStats</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-
 <body>
 
-<h1>
-  <img src="VISION STATS 1X1 SIN FONDO CON CONTORNO.png" alt="Logo 1" class="logo1">
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="index.html" class="brand">
+      <img src="VISION STATS 1X1 SIN FONDO CON CONTORNO.png" alt="" class="brand-logo">
+      <span>VisionStats</span>
+    </a>
+    <nav class="site-nav" aria-label="Principal">
+      <a href="index.html#competencias" aria-current="page">Competencias</a>
+      <a href="index.html#tableros">Tableros</a>
+      <a href="informes.html">Informes</a>
+    </nav>
+    <ul class="header-social">
+      <li><a href="https://www.instagram.com/visionstats.vs" target="_blank" rel="noopener" aria-label="Instagram"><img src="instagram-logo.png" alt=""></a></li>
+      <li><a href="https://www.tiktok.com/@visionstats.vs" target="_blank" rel="noopener" aria-label="TikTok"><img src="tiktok-logo.png" alt=""></a></li>
+      <li><a href="https://www.youtube.com/@visionstats_vs" target="_blank" rel="noopener" aria-label="YouTube"><img src="youtube-logo.png" alt=""></a></li>
+    </ul>
+  </div>
+</header>
 
-  <span class="titulo-centrado">
-    Estadísticas - Liga Profesional Argentina<br>
-    CLAUSURA 2026
-  </span>
+<main>
 
-  <img src="logo-LPF.png" alt="Logo 2" class="logo2">
-</h1>
+  <!-- ENCABEZADO DE LA COMPETENCIA -->
+  <section class="page-head wrap">
+    <a href="index.html" class="back-link">Volver al inicio</a>
+    <div class="page-head-main">
+      <div>
+        <span class="status">En juego</span>
+        <h1>Liga Profesional</h1>
+        <p class="page-sub">Clausura 2026</p>
+      </div>
+      <img src="logo-LPF.png" alt="Liga Profesional de Fútbol" class="league-logo">
+    </div>
+    <nav class="page-nav" aria-label="En esta página">
+      <a href="#top5">Top 5</a>
+      <a href="#jugadores">Jugadores</a>
+      <a href="#radar">Radar de equipos</a>
+    </nav>
+  </section>
 
+  <!-- TOP 5 -->
+  <section id="top5" class="section wrap top5-section">
+    <div class="section-head">
+      <h2>Top 5 de jugadores destacados</h2>
+      <p>Estadísticas acumuladas en el torneo.</p>
+    </div>
 
-<div class="volver-container">
-  <a href="index.html" class="boton-volver">Volver al Inicio</a>
-</div>
-
-
-<!-- =========================================================
-     TOP 5
-========================================================= -->
-
-<section id="top5" class="top5-section">
-
-  <h2>Top 5 Jugadores Destacados - Estadísticas Acumuladas</h2>
-
-  <div class="top5-container">
-
+    <div class="top5-container">
     <div class="top5-row">
-
       <div id="top5Delanteros" class="top5-list">
-        <h3>Delanteros - Goles</h3>
+        <h3>Goles <span class="top5-group">Delanteros</span></h3>
         <ol></ol>
       </div>
-
       <div id="top5DelanterosRegatesconéxito" class="top5-list">
-        <h3>Delanteros - Regates con éxito</h3>
+        <h3>Regates con éxito <span class="top5-group">Delanteros</span></h3>
         <ol></ol>
       </div>
-
     </div>
-
-
     <div class="top5-row">
-
       <div id="top5Mediocampistas" class="top5-list">
-        <h3>Mediocampistas - Goles</h3>
+        <h3>Goles <span class="top5-group">Mediocampistas</span></h3>
         <ol></ol>
       </div>
-
       <div id="top5MediocampistasPasesclave" class="top5-list">
-        <h3>Mediocampistas - Pases clave</h3>
+        <h3>Pases clave <span class="top5-group">Mediocampistas</span></h3>
         <ol></ol>
       </div>
-
     </div>
-
-
     <div class="top5-row">
-
       <div id="top5Defensores" class="top5-list">
-        <h3>Defensores - Entradas</h3>
+        <h3>Entradas <span class="top5-group">Defensores</span></h3>
         <ol></ol>
       </div>
-
       <div id="top5DefensoresIntercepciones" class="top5-list">
-        <h3>Defensores - Intercepciones</h3>
+        <h3>Intercepciones <span class="top5-group">Defensores</span></h3>
         <ol></ol>
       </div>
-
     </div>
-
-
     <div class="top5-row">
-
       <div id="top5Arqueros" class="top5-list">
-        <h3>Arqueros - Paradas</h3>
+        <h3>Paradas <span class="top5-group">Arqueros</span></h3>
         <ol></ol>
       </div>
-
       <div id="top5ArquerosPorteríaacero" class="top5-list">
-        <h3>Arqueros - Portería a cero</h3>
+        <h3>Portería a cero <span class="top5-group">Arqueros</span></h3>
         <ol></ol>
       </div>
+    </div>
+    </div>
+  </section>
 
+  <!-- ESTADISTICAS DE JUGADORES -->
+  <section id="jugadores" class="section wrap">
+    <div class="section-head">
+      <h2>Estadísticas de jugadores</h2>
+      <p>Filtrá por equipo y posición para ver los acumulados.</p>
     </div>
 
+    <div class="filtros">
+      <div class="filtro">
+        <label for="equipoSelect">Equipo</label>
+        <select id="equipoSelect"></select>
+      </div>
+      <div class="filtro">
+        <label for="posicionSelect">Posición</label>
+        <select id="posicionSelect">
+          <option value="delanteros">Delanteros</option>
+          <option value="mediocampistas">Mediocampistas</option>
+          <option value="defensores">Defensores</option>
+          <option value="arqueros">Arqueros</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="tablas">
+    <table id="tablaDelanteros">
+      <thead>
+        <tr>
+          <th>Equipo</th><th>Nombre</th><th>Goles</th><th>Regates con éxito</th>
+          <th>Tiros a puerta</th><th>Conversión de goles %</th><th>Duelos terrestres ganados %</th><th>Minutos jugados</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <table id="tablaMediocampistas">
+      <thead>
+        <tr>
+          <th>Equipo</th><th>Nombre</th><th>Goles</th><th>Pases precisos</th>
+          <th>Pases clave</th><th>Regates con éxito</th><th>Pases precisos en el último tercio</th><th>Minutos jugados</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <table id="tablaDefensores">
+      <thead>
+        <tr>
+          <th>Equipo</th><th>Nombre</th><th>Pases precisos %</th><th>Entradas</th>
+          <th>Intercepciones</th><th>Despejes</th><th>Regateado</th><th>Minutos jugados</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <table id="tablaArqueros">
+      <thead>
+        <tr>
+          <th>Equipo</th><th>Nombre</th><th>Paradas</th><th>Portería a cero</th>
+          <th>Goles encajados dentro del área</th><th>Goles encajados fuera del área</th>
+          <th>Tiros lanzados con éxito</th><th>Minutos jugados</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    </div>
+  </section>
+
+  <!-- RADAR DE EQUIPOS -->
+  <section id="radar" class="section wrap">
+    <div class="section-head">
+      <h2>Radar de rendimiento de equipos</h2>
+      <p>Elegí un equipo para ver sus indicadores.</p>
+    </div>
+
+    <div class="radar-layout">
+      <div>
+        <div class="radar-controls">
+          <div class="filtro">
+            <label for="teamSelect">Equipo</label>
+            <select id="teamSelect"></select>
+          </div>
+          <h3 id="fechaInfo"></h3>
+        </div>
+        <div class="radar-chart">
+          <canvas id="radarChart"></canvas>
+        </div>
+      </div>
+
+      <div class="legend">
+        <div class="stat-card">
+          <div class="stat-code">GOEV</div>
+          <div class="stat-title">Goles evitados</div>
+          <div class="stat-value" id="stat-GOEV">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-code">GOER</div>
+          <div class="stat-title">Goles errados</div>
+          <div class="stat-value" id="stat-GOER">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-code">GCPP</div>
+          <div class="stat-title">Goles en contra por partido</div>
+          <div class="stat-value" id="stat-GCPP">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-code">TPCG</div>
+          <div class="stat-title">Tiros para conceder 1 gol</div>
+          <div class="stat-value" id="stat-TPCG">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-code">TPCO</div>
+          <div class="stat-title">Tiros para conseguir 1 gol</div>
+          <div class="stat-value" id="stat-TPCO">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-code">GFPP</div>
+          <div class="stat-title">Goles a favor por partido</div>
+          <div class="stat-value" id="stat-GFPP">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-code">GEGR</div>
+          <div class="stat-title">Goles evitados cada 1 gol recibido</div>
+          <div class="stat-value" id="stat-GEGR">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-code">GERG</div>
+          <div class="stat-title">Goles errados cada 1 gol realizado</div>
+          <div class="stat-value" id="stat-GERG">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-code">ICTE</div>
+          <div class="stat-title">Intentos para conceder tiro efectivo</div>
+          <div class="stat-value" id="stat-ICTE">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-code">IGTE</div>
+          <div class="stat-title">Intentos para conseguir tiro efectivo</div>
+          <div class="stat-value" id="stat-IGTE">0</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <strong>VisionStats</strong>
+      <span>Análisis futbolístico</span>
+    </div>
+    <ul class="social">
+      <li><a href="https://www.instagram.com/visionstats.vs" target="_blank" rel="noopener"><img src="instagram-logo.png" alt="">Instagram</a></li>
+      <li><a href="https://www.tiktok.com/@visionstats.vs" target="_blank" rel="noopener"><img src="tiktok-logo.png" alt="">TikTok</a></li>
+      <li><a href="https://www.youtube.com/@visionstats_vs" target="_blank" rel="noopener"><img src="youtube-logo.png" alt="">YouTube</a></li>
+    </ul>
+    <p class="copy">© 2026 VisionStats. Todos los derechos reservados.</p>
   </div>
-
-</section>
-
-
-<!-- =========================================================
-     ESTADÍSTICAS INDIVIDUALES
-========================================================= -->
-
-<h2>Estadísticas acumuladas de jugadores</h2>
-
-
-<div class="filtros">
-
-  <label for="equipoSelect">
-    Seleccionar equipo:
-  </label>
-
-  <select id="equipoSelect"></select>
-
-
-  <label for="posicionSelect">
-    Seleccionar posición:
-  </label>
-
-  <select id="posicionSelect">
-
-    <option value="delanteros">
-      Delanteros
-    </option>
-
-    <option value="mediocampistas">
-      Mediocampistas
-    </option>
-
-    <option value="defensores">
-      Defensores
-    </option>
-
-    <option value="arqueros">
-      Arqueros
-    </option>
-
-  </select>
-
-</div>
-
-
-<!-- =========================================================
-     TABLAS
-========================================================= -->
-
-<div id="tablas">
-
-
-  <!-- DELANTEROS -->
-
-  <table id="tablaDelanteros">
-
-    <thead>
-
-      <tr>
-
-        <th>Equipo</th>
-        <th>Nombre</th>
-        <th>Goles</th>
-        <th>Regates con éxito</th>
-        <th>Tiros a puerta</th>
-        <th>Conversión de goles %</th>
-        <th>Duelos terrestres ganados %</th>
-        <th>Minutos jugados</th>
-
-      </tr>
-
-    </thead>
-
-    <tbody></tbody>
-
-  </table>
-
-
-  <!-- MEDIOCAMPISTAS -->
-
-  <table id="tablaMediocampistas">
-
-    <thead>
-
-      <tr>
-
-        <th>Equipo</th>
-        <th>Nombre</th>
-        <th>Goles</th>
-        <th>Pases precisos</th>
-        <th>Pases clave</th>
-        <th>Regates con éxito</th>
-        <th>Pases precisos en el último tercio</th>
-        <th>Minutos jugados</th>
-
-      </tr>
-
-    </thead>
-
-    <tbody></tbody>
-
-  </table>
-
-
-  <!-- DEFENSORES -->
-
-  <table id="tablaDefensores">
-
-    <thead>
-
-      <tr>
-
-        <th>Equipo</th>
-        <th>Nombre</th>
-        <th>Pases precisos %</th>
-        <th>Entradas</th>
-        <th>Intercepciones</th>
-        <th>Despejes</th>
-        <th>Regateado</th>
-        <th>Minutos jugados</th>
-
-      </tr>
-
-    </thead>
-
-    <tbody></tbody>
-
-  </table>
-
-
-  <!-- ARQUEROS -->
-
-  <table id="tablaArqueros">
-
-    <thead>
-
-      <tr>
-
-        <th>Equipo</th>
-        <th>Nombre</th>
-        <th>Paradas</th>
-        <th>Portería a cero</th>
-        <th>Goles encajados dentro del área</th>
-        <th>Goles encajados fuera del área</th>
-        <th>Tiros lanzados con éxito</th>
-        <th>Minutos jugados</th>
-
-      </tr>
-
-    </thead>
-
-    <tbody></tbody>
-
-  </table>
-
-
-</div>
-
-
-<!-- =========================================================
-     RADAR DE EQUIPOS
-========================================================= -->
-
-<h2>Radar de Rendimiento de Equipos</h2>
-
-
-<div class="radar-container">
-
-  <select id="teamSelect"></select>
-
-  <h3 id="fechaInfo"></h3>
-
-  <canvas id="radarChart"></canvas>
-
-
-  <div class="legend">
-
-
-    <div class="stat-card">
-      <div class="stat-code">GOEV</div>
-      <div class="stat-title">Goles evitados</div>
-      <div class="stat-value" id="stat-GOEV">0</div>
-    </div>
-
-
-    <div class="stat-card">
-      <div class="stat-code">GOER</div>
-      <div class="stat-title">Goles errados</div>
-      <div class="stat-value" id="stat-GOER">0</div>
-    </div>
-
-
-    <div class="stat-card">
-      <div class="stat-code">GCPP</div>
-      <div class="stat-title">Goles en contra por partido</div>
-      <div class="stat-value" id="stat-GCPP">0</div>
-    </div>
-
-
-    <div class="stat-card">
-      <div class="stat-code">TPCG</div>
-      <div class="stat-title">Tiros para conceder 1 gol</div>
-      <div class="stat-value" id="stat-TPCG">0</div>
-    </div>
-
-
-    <div class="stat-card">
-      <div class="stat-code">TPCO</div>
-      <div class="stat-title">Tiros para conseguir 1 gol</div>
-      <div class="stat-value" id="stat-TPCO">0</div>
-    </div>
-
-
-    <div class="stat-card">
-      <div class="stat-code">GFPP</div>
-      <div class="stat-title">Goles a favor por partido</div>
-      <div class="stat-value" id="stat-GFPP">0</div>
-    </div>
-
-
-    <div class="stat-card">
-      <div class="stat-code">GEGR</div>
-      <div class="stat-title">Goles evitados cada 1 gol recibido</div>
-      <div class="stat-value" id="stat-GEGR">0</div>
-    </div>
-
-
-    <div class="stat-card">
-      <div class="stat-code">GERG</div>
-      <div class="stat-title">Goles errados cada 1 gol realizado</div>
-      <div class="stat-value" id="stat-GERG">0</div>
-    </div>
-
-
-    <div class="stat-card">
-      <div class="stat-code">ICTE</div>
-      <div class="stat-title">Intentos para conceder tiro efectivo</div>
-      <div class="stat-value" id="stat-ICTE">0</div>
-    </div>
-
-
-    <div class="stat-card">
-      <div class="stat-code">IGTE</div>
-      <div class="stat-title">Intentos para conseguir tiro efectivo</div>
-      <div class="stat-value" id="stat-IGTE">0</div>
-    </div>
-
-
-  </div>
-
-</div>
-
-
-<!-- =========================================================
-     SCRIPTS
-========================================================= -->
+</footer>
 
 <!-- Datos del radar -->
 <script src="scriptdatac2026.js"></script>
@@ -365,51 +268,18 @@
 <!-- Conexión Supabase -->
 <script src="supabase-data.js"></script>
 
-
 <!-- Esperar a que Supabase termine antes de cargar script.js -->
-
 <script>
-
   cargarDatosSofaScore()
-
     .then(() => {
-
-      console.log(
-        "Supabase listo. Cargando script.js..."
-      );
-
+      console.log("Supabase listo. Cargando script.js...");
       const script = document.createElement("script");
-
       script.src = "script.js";
-
       document.body.appendChild(script);
-
     })
-
     .catch(error => {
-
-      console.error(
-        "No se pudieron cargar los datos de SofaScore:",
-        error
-      );
-
+      console.error("No se pudieron cargar los datos de SofaScore:", error);
     });
-
 </script>
-
-
-<!-- =========================================================
-     FOOTER
-========================================================= -->
-
-<footer class="footer">
-
-  <p>
-    © 2026 VisionStats. Todos los derechos reservados.
-  </p>
-
-</footer>
-
-
 </body>
 </html>

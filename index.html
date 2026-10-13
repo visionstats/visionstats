@@ -1,93 +1,186 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>VisionStats</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VisionStats | Estadísticas y análisis del fútbol argentino</title>
+  <meta name="description" content="Estadísticas avanzadas de clubes y jugadores de la Liga Profesional y la Primera B Nacional, informes, rankings y videoanálisis táctico.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="home">
 
-<h1>
-  <img src="VISION STATS 1X1 SIN FONDO CON CONTORNO.png" alt="Logo VisionStats" class="logo1">
-  Bienvenidos a VisionStats
-</h1>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="index.html" class="brand">
+      <img src="VISION STATS 1X1 SIN FONDO CON CONTORNO.png" alt="" class="brand-logo">
+      <span>VisionStats</span>
+    </a>
+    <nav class="site-nav" aria-label="Principal">
+      <a href="#competencias">Competencias</a>
+      <a href="#tableros">Tableros</a>
+      <a href="informes.html">Informes</a>
+    </nav>
+    <ul class="header-social">
+      <li><a href="https://www.instagram.com/visionstats.vs" target="_blank" rel="noopener" aria-label="Instagram"><img src="instagram-logo.png" alt=""></a></li>
+      <li><a href="https://www.tiktok.com/@visionstats.vs" target="_blank" rel="noopener" aria-label="TikTok"><img src="tiktok-logo.png" alt=""></a></li>
+      <li><a href="https://www.youtube.com/@visionstats_vs" target="_blank" rel="noopener" aria-label="YouTube"><img src="youtube-logo.png" alt=""></a></li>
+    </ul>
+  </div>
+</header>
 
-<section style="display: flex; justify-content: center; align-items: center; flex-direction: column; margin-top: 100px; gap: 30px;">
-  <h3 class="visionstats-descripcion">
-  VISIONSTATS es una plataforma integral de ANÁLISIS FUTBOLÍSTICO que ofrece ESTADÍSTICAS AVANZADAS DE CLUBES Y JUGADORES, INFORMES PERSONALIZADOS, RANKING DESTACADOS, VIDEOANÁLISIS TÁCTICO y CONSULTORÍAS ESPECIALIZADAS. Nuestro objetivo es proporcionar herramientas visuales y datos precisos que potencien el rendimiento deportivo y la toma de decisiones estratégicas en el mundo del fútbol.
-</h3>
-<div class="instagram-container">
-  <a href="https://www.instagram.com/visionstats.vs" target="_blank" class="instagram-link">
-    
-    <img src="instagram-logo.png" alt="Instagram" class="instagram-icon">
-    
-    <span class="instagram-user">@visionstats.vs</span>
-    
-  </a>
-</div>
-<div class="instagram-container">
-  <a href="https://www.tiktok.com/@visionstats.vs" target="_blank" class="instagram-link">
-    
-    <img src="tiktok-logo.png" alt="tiktok" class="instagram-icon">
-    
-    <span class="instagram-user">@visionstats.vs</span>
-    
-  </a>
-</div>
+<main>
 
-</div>
-<div class="instagram-container">
-  <a href="https://www.youtube.com/@visionstats_vs" target="_blank" class="instagram-link">
-    
-    <img src="youtube-logo.png" alt="tiktok" class="instagram-icon">
-    
-    <span class="instagram-user">@visionstats_vs</span>
-    
-  </a>
-</div>
-
-  <p style="max-width: 800px; text-align: center; font-size: 16px;">
-    Hacé click en los siguientes botones para acceder a más datos y estadísticas detalladas de cada competencia:
-  </p>
-<a href="lpfc2026.html" class="boton-estadisticas">
-  Liga Profesional Argentina - CLAUSURA 2026
-</a>
-<a href="bnacional.html" class="boton-estadisticas">
-  Primera B Nacional - 2026
-</a>
-<a href="informes.html" class="boton-estadisticas">
-  Informes
-</a>
-<a href="lpf.html" class="boton-estadisticas">
-  TORNEO FINALIZADO - Liga Profesional Argentina - APERTURA 2026
-</a>
-
-<section style="margin-top: 30px; text-align: center;">
-  <h2>TABLERO - LIGA PROFESIONAL ARGENTINA CLAUSURA 2026</h2>
-
-<div class="iframe-container">
-  <iframe 
-    class="responsive-iframe"
-    title="LIGA PROFESIONAL DE FUTBOL CLAUSURA 2026"
-    src="https://app.powerbi.com/view?r=eyJrIjoiOGIzNDA4YjItZTViZC00M2EyLWI0YmUtM2I5YWFiYjY3NTBkIiwidCI6ImYwYjZkZjAyLTM4ZGMtNDdlNS04Yzg2LWM4YjhlN2YyMDdjZSJ9"
-    allowfullscreen>
-  </iframe>
+  <!-- PRESENTACION -->
+  <section class="hero wrap">
+    <div>
+      <h1>Estadísticas y análisis del fútbol argentino</h1>
+      <p class="hero-lead">
+        VisionStats reúne datos avanzados de clubes y jugadores de la Liga Profesional y la Primera B Nacional,
+        con herramientas visuales pensadas para analizar el rendimiento y tomar mejores decisiones.
+      </p>
+      <div class="hero-actions">
+        <a href="lpfc2026.html" class="btn btn-primary">Ver Clausura 2026</a>
+        <a href="#tableros" class="btn btn-secondary">Abrir tableros</a>
+      </div>
     </div>
 
-    <h2>TABLERO - B NACIONAL ARGENTINA 2026</h2>
-    <div class="iframe-container">
-  <iframe 
-    class="responsive-iframe"
-    title="B NACIONAL ARGENINA 2026"
-    src="https://app.powerbi.com/view?r=eyJrIjoiODg2ZWYzMWUtMDdiMS00ODViLTlkMGMtNDllNjQxZDY3NDIxIiwidCI6ImYwYjZkZjAyLTM4ZGMtNDdlNS04Yzg2LWM4YjhlN2YyMDdjZSJ9"
-    allowfullscreen>
-  </iframe>
-    </div>
-</section>
+    <aside class="services">
+      <h2>Qué ofrecemos</h2>
+      <ul>
+        <li>Estadísticas avanzadas de clubes y jugadores</li>
+        <li>Informes personalizados</li>
+        <li>Rankings destacados</li>
+        <li>Videoanálisis táctico</li>
+        <li>Consultorías especializadas</li>
+      </ul>
+    </aside>
+  </section>
 
-  <footer class="footer">
-    <p>© 2026 VisionStats. Todos los derechos reservados.</p>
-  </footer>
+  <!-- COMPETENCIAS -->
+  <section id="competencias" class="section wrap">
+    <div class="section-head">
+      <h2>Competencias</h2>
+      <p>Elegí un torneo para ver tablas, rankings y estadísticas por jugador.</p>
+    </div>
+
+    <div class="comp-grid">
+      <a class="comp" href="lpfc2026.html">
+        <span class="status">En juego</span>
+        <span class="comp-name">Liga Profesional</span>
+        <span class="comp-season">Clausura 2026</span>
+        <span class="comp-cta">Ver estadísticas</span>
+      </a>
+      <a class="comp" href="bnacional.html">
+        <span class="status">En juego</span>
+        <span class="comp-name">Primera B Nacional</span>
+        <span class="comp-season">Temporada 2026</span>
+        <span class="comp-cta">Ver estadísticas</span>
+      </a>
+    </div>
+
+    <ul class="comp-archive">
+      <li>
+        <a href="lpf.html">
+          <span>Liga Profesional, Apertura 2026</span>
+          <span class="status status-done">Finalizado</span>
+        </a>
+      </li>
+    </ul>
+
+    <div class="informes-band">
+      <div>
+        <h3>Informes</h3>
+        <p>Análisis detallados de equipos y jugadores, listos para consultar.</p>
+      </div>
+      <a href="informes.html" class="btn btn-secondary">Ver informes</a>
+    </div>
+  </section>
+
+  <!-- TABLEROS -->
+  <section id="tableros" class="section wrap">
+    <div class="section-head">
+      <h2>Tableros interactivos</h2>
+      <p>Explorá los datos de cada torneo en Power BI.</p>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Tableros por torneo">
+      <button class="tab" role="tab" id="tab-lpf" aria-controls="panel-lpf" aria-selected="true">
+        Liga Profesional, Clausura 2026
+      </button>
+      <button class="tab" role="tab" id="tab-bn" aria-controls="panel-bn" aria-selected="false" tabindex="-1">
+        Primera B Nacional 2026
+      </button>
+    </div>
+
+    <div class="tab-panel" id="panel-lpf" role="tabpanel" aria-labelledby="tab-lpf">
+      <div class="frame">
+        <iframe
+          title="Tablero Liga Profesional Clausura 2026"
+          src="https://app.powerbi.com/view?r=eyJrIjoiOGIzNDA4YjItZTViZC00M2EyLWI0YmUtM2I5YWFiYjY3NTBkIiwidCI6ImYwYjZkZjAyLTM4ZGMtNDdlNS04Yzg2LWM4YjhlN2YyMDdjZSJ9"
+          loading="lazy"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="panel-bn" role="tabpanel" aria-labelledby="tab-bn" hidden>
+      <div class="frame">
+        <!-- Se carga recién al abrir la pestaña, así la página inicial es más liviana -->
+        <iframe
+          title="Tablero Primera B Nacional 2026"
+          data-src="https://app.powerbi.com/view?r=eyJrIjoiODg2ZWYzMWUtMDdiMS00ODViLTlkMGMtNDllNjQxZDY3NDIxIiwidCI6ImYwYjZkZjAyLTM4ZGMtNDdlNS04Yzg2LWM4YjhlN2YyMDdjZSJ9"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <strong>VisionStats</strong>
+      <span>Análisis futbolístico</span>
+    </div>
+    <ul class="social">
+      <li><a href="https://www.instagram.com/visionstats.vs" target="_blank" rel="noopener"><img src="instagram-logo.png" alt="">Instagram</a></li>
+      <li><a href="https://www.tiktok.com/@visionstats.vs" target="_blank" rel="noopener"><img src="tiktok-logo.png" alt="">TikTok</a></li>
+      <li><a href="https://www.youtube.com/@visionstats_vs" target="_blank" rel="noopener"><img src="youtube-logo.png" alt="">YouTube</a></li>
+    </ul>
+    <p class="copy">© 2026 VisionStats. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<script>
+  // Pestañas de tableros
+  const tabs = [...document.querySelectorAll('.tab')];
+
+  function activar(tab) {
+    tabs.forEach(t => {
+      const activa = t === tab;
+      t.setAttribute('aria-selected', activa);
+      t.tabIndex = activa ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !activa;
+    });
+    const iframe = document.getElementById(tab.getAttribute('aria-controls')).querySelector('iframe[data-src]');
+    if (iframe) {
+      iframe.src = iframe.dataset.src;
+      iframe.removeAttribute('data-src');
+    }
+  }
+
+  tabs.forEach(t => t.addEventListener('click', () => activar(t)));
+
+  document.querySelector('.tabs').addEventListener('keydown', e => {
+    if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+    let i = tabs.indexOf(document.activeElement);
+    if (i < 0) return;
+    i = (i + (e.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length;
+    tabs[i].focus();
+    activar(tabs[i]);
+  });
+</script>
 </body>
 </html>

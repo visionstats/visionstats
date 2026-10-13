@@ -1,101 +1,92 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Informes</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Informes | VisionStats</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
-<h1>
-  <img src="VISION STATS 1X1 SIN FONDO CON CONTORNO.png" alt="Logo 1" class="logo1">
-  
-  <span class="titulo-centrado">
-    Informes
-  </span>
-  
-</h1>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="index.html" class="brand">
+      <img src="VISION STATS 1X1 SIN FONDO CON CONTORNO.png" alt="" class="brand-logo">
+      <span>VisionStats</span>
+    </a>
+    <nav class="site-nav" aria-label="Principal">
+      <a href="index.html#competencias">Competencias</a>
+      <a href="index.html#tableros">Tableros</a>
+      <a href="informes.html" aria-current="page">Informes</a>
+    </nav>
+    <ul class="header-social">
+      <li><a href="https://www.instagram.com/visionstats.vs" target="_blank" rel="noopener" aria-label="Instagram"><img src="instagram-logo.png" alt=""></a></li>
+      <li><a href="https://www.tiktok.com/@visionstats.vs" target="_blank" rel="noopener" aria-label="TikTok"><img src="tiktok-logo.png" alt=""></a></li>
+      <li><a href="https://www.youtube.com/@visionstats_vs" target="_blank" rel="noopener" aria-label="YouTube"><img src="youtube-logo.png" alt=""></a></li>
+    </ul>
+  </div>
+</header>
 
-<div class="volver-container">
-  <a href="index.html" class="boton-volver">Volver al Inicio</a>
-</div>
+<main>
 
-  <h3 class="visionstats-descripcion">
-  Informes profesionales elaborados por VisionStats, donde se analizan en profundidad las principales métricas, tendencias de juego, desempeños destacados y datos clave de cada jornada de la Liga Profesional de Fútbol y la Primera Nacional.
-</h3>
+  <section class="page-head wrap">
+    <a href="index.html" class="back-link">Volver al inicio</a>
+    <div class="page-head-main">
+      <div>
+        <h1>Informes</h1>
+        <p class="page-lead">
+          Análisis en profundidad de las principales métricas, tendencias de juego, desempeños destacados
+          y datos clave de cada jornada de la Liga Profesional y la Primera Nacional.
+        </p>
+      </div>
+    </div>
+  </section>
 
-<div class="informes-container">
-
-    <div class="stat-card informe-card">
-
-        <div class="stat-code">
-            INFORME LPF CLAUSURA 2026
-        </div>
-
-        <div class="stat-title">
-            RIESTRA FECHA 1
-        </div>
-
-        <a href="INFORME CLAUSURA RIESTRA F1.pdf" target="_blank">
-
-            <img
-                src="portada-riestra-f1.png"
-                alt="Informe LPF CLAUSURA 2026 Riestra Fecha 1"
-                class="informe-imagen">
-
-        </a>
-
+  <!-- Para sumar un torneo nuevo, copiá esta sección completa -->
+  <section class="section wrap" style="padding-top:24px;">
+    <div class="section-head">
+      <h2>Liga Profesional, Clausura 2026</h2>
+      <p>Hacé click en una portada para abrir el informe.</p>
     </div>
 
-    <div class="stat-card informe-card">
-
-        <div class="stat-code">
-            INFORME LPF CLAUSURA 2026
-        </div>
-
-        <div class="stat-title">
-            ARGENTINOS FECHA 1
-        </div>
-
-        <a href="INFORME CLAUSURA ARGENTINOS F1.pdf" target="_blank">
-
-            <img
-                src="portada-argentinos-f1.png"
-                alt="Informe LPF CLAUSURA 2026 Argentinos Fecha 1"
-                class="informe-imagen">
-
-        </a>
-
+    <div class="report-grid">
+      <a class="report" href="INFORME CLAUSURA RIESTRA F1.pdf" target="_blank" rel="noopener">
+        <img src="portada-riestra-f1.png" alt="Portada del informe de Riestra, fecha 1" class="report-cover">
+        <span class="report-team">Riestra</span>
+        <span class="report-meta">Fecha 1, informe en PDF</span>
+      </a>
+      <a class="report" href="INFORME CLAUSURA ARGENTINOS F1.pdf" target="_blank" rel="noopener">
+        <img src="portada-argentinos-f1.png" alt="Portada del informe de Argentinos, fecha 1" class="report-cover">
+        <span class="report-team">Argentinos</span>
+        <span class="report-meta">Fecha 1, informe en PDF</span>
+      </a>
+      <a class="report" href="INFORME CLAUSURA INDEPENDIENTE F1.pdf" target="_blank" rel="noopener">
+        <img src="portada-independiente-f1.png" alt="Portada del informe de Independiente, fecha 1" class="report-cover">
+        <span class="report-team">Independiente</span>
+        <span class="report-meta">Fecha 1, informe en PDF</span>
+      </a>
     </div>
+  </section>
 
-    <div class="stat-card informe-card">
+</main>
 
-        <div class="stat-code">
-            INFORME LPF CLAUSURA 2026
-        </div>
-
-        <div class="stat-title">
-            INDEPENDIENTE FECHA 1
-        </div>
-
-        <a href="INFORME CLAUSURA INDEPENDIENTE F1.pdf" target="_blank">
-
-            <img
-                src="portada-independiente-f1.png"
-                alt="Informe LPF CLAUSURA 2026 Independiente Fecha 1"
-                class="informe-imagen">
-
-        </a>
-
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <strong>VisionStats</strong>
+      <span>Análisis futbolístico</span>
     </div>
+    <ul class="social">
+      <li><a href="https://www.instagram.com/visionstats.vs" target="_blank" rel="noopener"><img src="instagram-logo.png" alt="">Instagram</a></li>
+      <li><a href="https://www.tiktok.com/@visionstats.vs" target="_blank" rel="noopener"><img src="tiktok-logo.png" alt="">TikTok</a></li>
+      <li><a href="https://www.youtube.com/@visionstats_vs" target="_blank" rel="noopener"><img src="youtube-logo.png" alt="">YouTube</a></li>
+    </ul>
+    <p class="copy">© 2026 VisionStats. Todos los derechos reservados.</p>
+  </div>
+</footer>
 
-</div>
-
-  <footer class="footer">
-    <p>© 2026 VisionStats. Todos los derechos reservados.</p>
-  </footer>
 </body>
 </html>
